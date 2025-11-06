@@ -1,13 +1,16 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int main(){
-    int n,s=0;
-    cin>>n;
-    for(int i=0;i<n;i++){
-        if(i%5==0 || i%3==0) s+=i;
+int main() {
+    int limit;
+    std::cout << "Enter a limit: ";
+    std::cin >> limit;
+
+    int sum_of_multiples = 0;
+    for (int i = 0; i < limit; ++i) {
+        if (i % 3 == 0 || i % 5 == 0) {
+            sum_of_multiples += i;
+        }
     }
-    cout<<s;
+    std::cout << "Sum of multiples of 3 or 5 below " << limit << " is: " << sum_of_multiples << std::endl;
     return 0;
 }
-
-// If we list all the natural numbers below 10 that are multiples of 3 or 5 we get 3,5,6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000
