@@ -1,0 +1,13 @@
+def sum_primes_below(n):
+    if n <= 2:
+        return 0
+    sieve = bytearray(b"\x01") * n
+    sieve[0:2] = b"\x00\x00"
+    limit = int(n**0.5) + 1
+    for p in range(2, limit):
+        if sieve[p]:
+            start = p * p
+            sieve[start:n:p] = b"\x00" * (((n - 1 - start) // p) + 1)
+    return sum(i for i, is_prime in enumerate(sieve) if is_prime)
+m = int(input())
+print(sum_primes_below(m))
